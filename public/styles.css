@@ -1,0 +1,28 @@
+body {
+    background-image: url("images/download.png");
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:6em; 
+
+}
+
+.heading {
+    text-align: center;
+}
+
+.my-fancy-font {
+    font-family: 'Pacifico', cursive;
+}
+
+
+/* label focus color */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+color: red !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+border-bottom: 1px solid red !important;
+box-shadow: 0 1px 0 0 red !important;
+}

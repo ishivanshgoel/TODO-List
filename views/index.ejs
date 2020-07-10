@@ -11,67 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-image: url("images/background.jpg");
-            /* The image used */
-            background-color: #cccccc;
-            /* Used if the image is unavailable */
-            height: 500px;
-            /* You must set a specified height */
-            background-position: center;
-            /* Center the image */
-            background-repeat: no-repeat;
-            /* Do not repeat the image */
-            background-size: cover;
-            /* Resize the background image to cover the entire container */
-            background-attachment: fixed;
-            /* lightens the background */
-            background-blend-mode: lighten;
-            overflow-x: hidden;
-
-        }
-
-        .heading {
-            text-align: center;
-        }
-
-        .my-fancy-font {
-            font-family: 'Pacifico', cursive;
-            /* color: rgb(226, 28, 202); */
-            background: linear-gradient(rgb(96, 4, 158), rgb(230, 17, 176));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-        }
-
-        hr{
-            border-top: 2px solid ;
-        }
-
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
-    
+
     <div class="row" style="padding-bottom: 0em; margin-bottom: 0rem;">
         <div class="offset-s2 col s8">
-            <u><h1 class="heading my-fancy-font" style="padding-bottom: 0em; margin-bottom: 0rem;">My TODO List</h1></u>
-            <u><h3 class="heading my-fancy-font"><%= date.day %>-<%= date.month %>-<%=date.year %></h3></u>
+            <h1 class="heading my-fancy-font" style="padding-bottom: 0em; margin-bottom: 0rem;"><u>My TODO
+                List</u></h1>
+            <h3 class="heading my-fancy-font"><u><%= date.day %>-<%= date.month %>-<%=date.year %></u>
+            </h3>
         </div>
     </div>
 
     <div class="row">
         <div class="offset-s4 col s8">
-           
+
             <% for(let todo of allTodos){ %>
-           
-            <h4 class="my-fancy-font" >
-                <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
-            => <%= todo %>
-           
+
+            <h4 class="my-fancy-font">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                 <%= todo %>
+
             </h4>
-            <% } %>     
+            <% } %>
         </div>
     </div>
 
@@ -80,7 +44,6 @@
             <div class="input-field col s6">
                 <div class="row">
                     <div class="offset-s1 col s7">
-                        <i class="material-icons prefix">mode_edit</i>
                         <input placeholder="Add New Item" type="text" name="newItem">
                     </div>
                     <div class="col s4">
