@@ -1,22 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Todo-List</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("images/background.jpg");
+            /* The image used */
+            background-color: #cccccc;
+            /* Used if the image is unavailable */
+            height: 500px;
+            /* You must set a specified height */
+            background-position: center;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            background-size: cover;
+            /* Resize the background image to cover the entire container */
+            background-attachment: fixed;
+            /* lightens the background */
+            background-blend-mode: lighten;
+            overflow-x: hidden;
+
+        }
+
+        .heading {
+            text-align: center;
+        }
+
+        .my-fancy-font {
+            font-family: 'Pacifico', cursive;
+            /* color: rgb(226, 28, 202); */
+            background: linear-gradient(rgb(96, 4, 158), rgb(230, 17, 176));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+        }
+
+        hr{
+            border-top: 2px solid ;
+        }
+
+    </style>
 </head>
+
 <body>
     
-    <p><%= date.day %>-<%= date.month %>-<%=date.year %></p> 
-    <% for(let todo of allTodos){ %>
-        <ul> <%= todo %> </ul>
-    <% } %>
-    
-    <form action="/" method="post">
-        <input type="text" name="newItem" placeholder="Add New Item"/>
-        <input type="Submit" name="addButton" value="Add"/>
-    </form>
+    <div class="row" style="padding-bottom: 0em; margin-bottom: 0rem;">
+        <div class="offset-s2 col s8">
+            <u><h1 class="heading my-fancy-font" style="padding-bottom: 0em; margin-bottom: 0rem;">My TODO List</h1></u>
+            <u><h3 class="heading my-fancy-font"><%= date.day %>-<%= date.month %>-<%=date.year %></h3></u>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="offset-s4 col s8">
+           
+            <% for(let todo of allTodos){ %>
+           
+            <h4 class="my-fancy-font" >
+                <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+            => <%= todo %>
+           
+            </h4>
+            <% } %>     
+        </div>
+    </div>
 
+    <div class="row">
+        <form class="offset-s3 col s12" action="/" method="post">
+            <div class="input-field col s6">
+                <div class="row">
+                    <div class="offset-s1 col s7">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <input placeholder="Add New Item" type="text" name="newItem">
+                    </div>
+                    <div class="col s4">
+                        <button type="submit" class="btn-floating btn-large waves-effect waves-light red"><i
+                                class="material-icons">add</i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
 </html>
