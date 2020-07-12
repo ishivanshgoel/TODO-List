@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
-    all tosods here
+
+    <div class="row" style="margin-right: 100px;">
+
+
+
+        <div class="offset-s4 col s8">
+            <h1 class="my-fancy-font" style="text-align: center;">
+                All Pending Work
+            </h1>
+            <table>
+                <!-- table head -->
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Work</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+
+                <!-- table content fetched from backend -->
+                <tbody>
+                    <%  for(let todo of pending_todos){ %>
+                        <% if(todo.isDone ==  false) { %>
+                    <tr>
+                        <td> <%= todo.date.day  %>-<%= todo.date.month  %>-<%= todo.date.year  %></td>
+                        <td> <%= todo.work %> </td>  
+                        <td> <%= todo.isDone %> </td>
+                    </tr>
+                    <%  }  %>
+                    <%  }  %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
 </html>
+
+<!-- desktop viewport
+https://github.com/shivansh-goel/TODO-List/blob/master/public/screenshot/SS1.png
+
+mobile viewport
+https://github.com/shivansh-goel/TODO-List/blob/master/public/screenshot/SS2.png -->

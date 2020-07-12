@@ -28,7 +28,7 @@ const todoSchema = new mongoose.Schema({
     isDone : Boolean
 });
 
-// initializing model
+// todo model
 const todos = mongoose.model("todos", todoSchema);
 
 // to get the current date
@@ -58,8 +58,9 @@ app.get("/",(req,res)=>{
              res.render('index' , {date : get_current_date(), allTodos : todo_list});
         }
     });
-   
 });
+
+
 
 app.post("/",function(req,res){
     let newItem = req.body.newItem;
@@ -75,13 +76,38 @@ app.post("/",function(req,res){
     res.redirect("/");
 });
 
+
 // route to get all pending todos
-app.get("/get_all",function(req,res){
-    res.render("all_todos.ejs");
+app.get("/all_pending_work",function(req,res){
+    var pending_todos=[];
+    let isFetched=false;
+
+    todos.find(function(err,todo_list){
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        console.log(todo_list)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        if(err){
+            console.log(err);
+        }
+        else{
+            // todo_list.forEach(function(todo){
+            //     if(todo.isDone==false){
+            //         pending_todos.push(todo);
+            //         // console.log(todo);
+            //     }
+            // })
+
+            res.render("all_todos.ejs", {pending_todos : todo_list});
+        }
+    });
+    // console.log("Pending TODO's");
+    // console.log(pending_todos);
+    // res.render("all_todos.ejs", {pending_todos : pending_todos});
 });
 
 
 // creating server on port 3000
 app.listen(3000,()=>{
-    console.log("Listening on posrt 3000!!");
+    console.log("Listening on port 3000!!");
 });
