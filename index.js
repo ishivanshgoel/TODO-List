@@ -21,7 +21,7 @@ db.once('open', function() {
     console.log("Connected to db successfully!!");
 });
 
-// creting schema for database
+// creating schema for database
 const todoSchema = new mongoose.Schema({
     date : Object,
     work : String,
@@ -91,13 +91,12 @@ app.get("/all_pending_work",function(req,res){
             console.log(err);
         }
         else{
-            // todo_list.forEach(function(todo){
-            //     if(todo.isDone==false){
-            //         pending_todos.push(todo);
-            //         // console.log(todo);
-            //     }
-            // })
-
+            todo_list.forEach(function(todo){
+                if(todo.isDone==false){
+                    pending_todos.push(todo);
+                    // console.log(todo);
+                }
+            })
             res.render("all_todos.ejs", {pending_todos : todo_list});
         }
     });
