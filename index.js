@@ -64,7 +64,8 @@ app.get("/",(req,res)=>{
 
 app.post("/",function(req,res){
     let newItem = req.body.newItem;
-   
+
+    if(newItem.length > 0){
     // updating to database
     let my_todo = new todos({
         work : newItem,
@@ -72,7 +73,10 @@ app.post("/",function(req,res){
         date : get_current_date()
     });
     my_todo.save();
-
+    } else{
+       console.log("Not updated!!");
+    }
+    
     res.redirect("/");
 });
 

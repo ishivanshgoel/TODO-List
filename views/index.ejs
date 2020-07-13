@@ -1,41 +1,49 @@
-<%- include('header') %> 
-    <div class="row" style="padding-bottom: 0em; margin-bottom: 0rem;">
-        <div class="offset-s2 col s8">
-            <h1 class="heading my-fancy-font" style="padding-bottom: 0em; margin-bottom: 0rem;"><u>My TODO
+<%- include('header') %>
+<div class="row" style="padding-bottom: 0em; margin-bottom: 0rem;">
+    <div class="offset-s2 col s8">
+        <h1 class="heading my-fancy-font" style="padding-bottom: 0em; margin-bottom: 0rem;"><u>My TODO
                 List</u></h1>
-            <h3 class="heading my-fancy-font"><u><%= date.day %>-<%= date.month %>-<%=date.year %></u>
-            </h3>
-        </div>
+        <h3 class="heading my-fancy-font"><u><%= date.day %>-<%= date.month %>-<%=date.year %></u>
+        </h3>
     </div>
+</div>
 
-    <div class="row">
-        <div class="offset-s4 col s8">
+<div class="row">
+    <div class="offset-s4 col s8">
 
-            <% for(let todo of allTodos){ %>
+        <% for(let todo of allTodos){ %>
 
-            <h4 class="my-fancy-font">
-                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                 <%= todo.work %>
-
-            </h4>
-            <% } %>
-        </div>
-    </div>
-
-    <div class="row">
-        <form class="offset-s3 col s12" action="/" method="post">
-            <div class="input-field col s6">
-                <div class="row">
-                    <div class="offset-s1 col s7">
-                        <input placeholder="Add New Item" type="text" name="newItem">
-                    </div>
-                    <div class="col s4">
-                        <button type="submit" class="btn-floating btn-large waves-effect waves-light red"><i
-                                class="material-icons">add</i></button>
-                    </div>
+        <h4 class="my-fancy-font">
+           
+            <div class="row">
+                <div class="col s4">
+                    <span class="material-icons">anchor</span>
+                    <%= todo.work %>
+                </div>
+                <div class="offset-s1 col s3">
+                    <a class="btn-floating btn-large waves-effect waves-light red" href="/"><i
+                            class="material-icons">delete_outline</i></a>
                 </div>
             </div>
-        </form>
+        </h4>
+        <% } %>
     </div>
+</div>
 
-    <%- include('footer') %> 
+<div class="row">
+    <form class="offset-s3 col s12" action="/" method="post">
+        <div class="input-field col s6">
+            <div class="row">
+                <div class="offset-s1 col s7">
+                    <input placeholder="Add New Item" type="text" name="newItem">
+                </div>
+                <div class="col s3">
+                    <button type="submit" class="btn-floating btn-large waves-effect waves-light red"><i
+                            class="material-icons">add</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %>

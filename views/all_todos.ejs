@@ -10,7 +10,7 @@
                     <tr>
                         <th>Date</th>
                         <th>Work</th>
-                        <th>Remove</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
 
@@ -21,8 +21,9 @@
                     <tr>
                         <td> <%= todo.date.day  %>-<%= todo.date.month  %>-<%= todo.date.year  %></td>
                         <td> <%= todo.work %> </td>  
-                        <td> <%= todo.isDone %> </td>
+                        <td><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_outline</i></a></td>
                     </tr>
+                   
                     <%  }  %>
                     <%  }  %>
                 </tbody>
